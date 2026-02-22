@@ -1,0 +1,325 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #008080;
+    font-family: "MS Sans Serif", Tahoma, sans-serif;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Windows 98 raised panel */
+.raised {
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+}
+
+/* Windows 98 sunken inset */
+.sunken {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* Main window */
+.window {
+    background: #c0c0c0;
+    width: 480px;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+    box-shadow: 2px 2px 0 #000000;
+}
+
+/* Title bar */
+.titlebar {
+    background: linear-gradient(to right, #000080, #1084d0);
+    padding: 3px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.titlebar-left {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.titlebar-icon {
+    width: 16px;
+    height: 16px;
+    background: #ffff00;
+    border: 1px solid #808000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+}
+
+/* Window content */
+.content {
+    padding: 10px;
+}
+
+/* Group box */
+.groupbox {
+    border: 2px solid #808080;
+    border-top: 1px solid #808080;
+    margin-bottom: 8px;
+    position: relative;
+    padding: 12px 8px 8px 8px;
+}
+
+.groupbox-label {
+    position: absolute;
+    top: -7px;
+    left: 8px;
+    background: #c0c0c0;
+    padding: 0 4px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+/* Password output */
+.password-display {
+    background: white;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding: 4px 6px;
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 28px;
+    word-break: break-all;
+    color: #000080;
+    letter-spacing: 0.5px;
+}
+
+/* Strength bar */
+.strength-bar-outer {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    height: 14px;
+    background: #ffffff;
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+.strength-bar-inner {
+    height: 100%;
+    transition:
+        width 0.2s,
+        background 0.2s;
+    width: 0%;
+}
+
+.strength-label {
+    font-size: 10px;
+    margin-top: 2px;
+    text-align: right;
+}
+
+/* Checkboxes and options */
+.option-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 5px;
+    font-size: 11px;
+}
+
+input[type="checkbox"] {
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+}
+
+/* Length slider */
+.slider-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.slider-label {
+    min-width: 110px;
+    font-size: 11px;
+}
+
+input[type="range"] {
+    flex: 1;
+    height: 18px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    background: #808080;
+    border-top: 1px solid #404040;
+    border-left: 1px solid #404040;
+    border-right: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 11px;
+    height: 18px;
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+    margin-top: -7px;
+    cursor: pointer;
+}
+
+.slider-value {
+    min-width: 24px;
+    text-align: right;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+/* Buttons */
+.btn {
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+    padding: 3px 12px;
+    font-family: "MS Sans Serif", Tahoma, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    min-width: 80px;
+    text-align: center;
+    user-select: none;
+}
+
+.btn:active {
+    border-top: 2px solid #404040;
+    border-left: 2px solid #404040;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding: 4px 11px 2px 13px;
+}
+
+.btn-primary {
+    font-weight: bold;
+    outline: 1px dotted #000000;
+    outline-offset: -4px;
+}
+
+.btn-row {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+/* Entropy info */
+.entropy-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: #444;
+    margin-top: 3px;
+}
+
+/* Statusbar */
+.statusbar {
+    border-top: 2px solid #808080;
+    display: flex;
+    gap: 1px;
+    padding: 2px 4px;
+}
+
+.status-pane {
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    padding: 1px 4px;
+    font-size: 10px;
+    color: #000;
+    flex: 1;
+}
+
+/* Copy notification */
+.copy-notif {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffcc;
+    border: 1px solid #808080;
+    box-shadow: 2px 2px 0 #000;
+    padding: 4px 12px;
+    font-size: 11px;
+    display: none;
+    z-index: 999;
+}
+
+/* History box */
+.history-box {
+    background: white;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    height: 64px;
+    overflow-y: auto;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    padding: 2px 4px;
+    color: #333;
+}
+
+.history-item {
+    padding: 1px 0;
+    border-bottom: 1px dotted #ddd;
+    cursor: pointer;
+    user-select: all;
+}
+.history-item:hover {
+    background: #000080;
+    color: white;
+}
+
+select {
+    font-family: "MS Sans Serif", Tahoma, sans-serif;
+    font-size: 11px;
+    background: white;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding: 1px 2px;
+}

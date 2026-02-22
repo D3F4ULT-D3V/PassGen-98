@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PassGen 98</title>
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body>
+        <div class="window">
+            <!-- Title bar -->
+            <div class="titlebar">
+                <div class="titlebar-left">
+                    <div class="titlebar-icon">🔑</div>
+                    Password Generator 98
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <!-- Output -->
+                <div class="groupbox">
+                    <div class="groupbox-label">Generated Password</div>
+                    <div class="password-display" id="passwordDisplay">Click "Generate" to begin</div>
+                    <div class="strength-bar-outer">
+                        <div class="strength-bar-inner" id="strengthBar"></div>
+                    </div>
+                    <div class="entropy-row">
+                        <span id="strengthText">-</span>
+                        <span id="entropyText">Entropy: - bits</span>
+                    </div>
+                </div>
+
+                <!-- Options -->
+                <div class="groupbox">
+                    <div class="groupbox-label">Options</div>
+
+                    <div class="slider-row">
+                        <span class="slider-label">Password Length:</span>
+                        <input
+                            type="range"
+                            id="lengthSlider"
+                            min="12"
+                            max="64"
+                            value="20"
+                            oninput="document.getElementById('lengthVal').textContent=this.value"
+                        />
+                        <span class="slider-value" id="lengthVal">20</span>
+                    </div>
+
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap">
+                        <div>
+                            <div class="option-row">
+                                <input type="checkbox" id="chkUpper" checked />
+                                <label for="chkUpper">Uppercase (A–Z)</label>
+                            </div>
+                            <div class="option-row">
+                                <input type="checkbox" id="chkLower" checked />
+                                <label for="chkLower">Lowercase (a–z)</label>
+                            </div>
+                            <div class="option-row">
+                                <input type="checkbox" id="chkDigits" checked />
+                                <label for="chkDigits">Digits (0–9)</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="option-row">
+                                <input type="checkbox" id="chkSymbols" checked />
+                                <label for="chkSymbols">Symbols (!@#$…)</label>
+                            </div>
+                            <div class="option-row">
+                                <input type="checkbox" id="chkNoAmbig" />
+                                <label for="chkNoAmbig">Exclude ambiguous (0Ol1I|)</label>
+                            </div>
+                            <div class="option-row">
+                                <input type="checkbox" id="chkGuarantee" checked />
+                                <label for="chkGuarantee">Guarantee each char type</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- History -->
+                <div class="groupbox">
+                    <div class="groupbox-label">Session History (click to copy)</div>
+                    <div class="history-box" id="historyBox"></div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="btn-row">
+                    <button class="btn" onclick="copyPassword()">Copy</button>
+                    <button class="btn" onclick="clearHistory()">Clear History</button>
+                    <button class="btn btn-primary" onclick="generatePassword()">Generate</button>
+                </div>
+            </div>
+
+            <!-- Status bar -->
+            <div class="statusbar">
+                <div class="status-pane" id="statusPane">Ready</div>
+                <div class="status-pane" style="max-width: 150px" id="algoPane">CSPRNG: crypto.getRandomValues</div>
+            </div>
+        </div>
+
+        <div class="copy-notif" id="copyNotif">Copied to clipboard!</div>
+
+        <script src="javascript/main.js"></script>
+    </body>
+</html>
